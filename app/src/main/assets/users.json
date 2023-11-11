@@ -1,0 +1,14 @@
+[
+  {
+    "id": 55,
+    "firstName": "Pranit",
+    "lastName": "Rane",
+    "contact": {
+      "email": "pranit@kredily.com",
+      "dialCode": "+91",
+      "mobile": "8047092710"
+    },
+    "password": "f!x@It2023",
+    "otp": "983569"
+  }
+]
