@@ -20,8 +20,10 @@ androidXFragment = "1.6.2"
 androidXNavigation = "2.7.5"
 androidXLifecycleExtensions = "2.2.0"
 androidXLifecycle = "2.6.2"
+gson = "2.9.0"
 kotlinX = "1.7.2"
 material = "1.10.0"
+otpPinview = "3.1.0"
 junit = "4.13.2"
 runner = "1.5.2"
 espresso = "3.5.1"
@@ -48,6 +50,8 @@ androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmode
 androidx-runner = { module = "androidx.test:runner", version.ref = "runner" }
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
 
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 
@@ -57,6 +61,8 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinX" }
 
 material = { module = "com.google.android.material:material", version.ref = "material" }
+
+otp-pinview = { module = "com.github.mukeshsolanki.android-otpview-pinview:otpview", version.ref = "otpPinview" }
 
 [plugins]
 ## add plugins here

@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Kredily</string>
+
+    <string name="label_welcome">Welcome</string>
+    <string name="label_please_enter_details">Please enter your details to get started!</string>
+    <string name="label_otp_verification">OTP Verification</string>
+    <string name="label_please_enter_otp">Please enter the OTP sent to your email %s and your phone number %s</string>
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+
+    <string name="btn_log_in">Log In</string>
+    <string name="btn_log_in_with_otp">Log In With OTP</string>
+    <string name="btn_proceed">Proceed</string>
+
+    <string name="error_invalid_email">Invalid email…</string>
+    <string name="error_invalid_password">Invalid password…</string>
 </resources>

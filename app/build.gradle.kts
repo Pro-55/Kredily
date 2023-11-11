@@ -91,6 +91,12 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
+    // Gson
+    implementation(libs.gson)
+
+    // OTP PinView
+    implementation(libs.otp.pinview)
+
     // Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.runner)
