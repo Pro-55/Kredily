@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/setPasscodeFragment"
-        android:name="com.example.kredily.ui.passcode.SetPasscodeFragment"
+        android:name="com.example.kredily.ui.passcode.set_passcode.SetPasscodeFragment"
         android:label="setPasscodeFragment"
         tools:layout="@layout/fragment_set_passcode">
         <action

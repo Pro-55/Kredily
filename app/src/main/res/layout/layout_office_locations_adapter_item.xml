@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_parent_office_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt_office_location"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_4dp"
+            android:maxLines="2"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/radio_office_location"
+            app:layout_constraintEnd_toStartOf="@id/radio_office_location"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/radio_office_location"
+            tools:text="4th Block, HSR Layout" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radio_office_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_4dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:buttonTint="@color/colorAccent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txt_office_location"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_separator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="txt_office_location,radio_office_location" />
+
+        <View
+            android:id="@+id/view_separator"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:background="@color/color_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier_separator" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
