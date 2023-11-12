@@ -5,9 +5,14 @@
     <string name="label_please_enter_details">Please enter your details to get started!</string>
     <string name="label_otp_verification">OTP Verification</string>
     <string name="label_please_enter_otp">Please enter the OTP sent to your email %s and your phone number %s</string>
+    <string name="label_get_started">Get Started</string>
+    <string name="label_create_passcode">Create a passcode to manage employee data</string>
+    <string name="label_confirm_location">Confirm your office location</string>
 
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
+    <string name="hint_enter_passcode">Enter Passcode</string>
+    <string name="hint_confirm_passcode">Confirm Passcode</string>
 
     <string name="btn_log_in">Log In</string>
     <string name="btn_log_in_with_otp">Log In With OTP</string>

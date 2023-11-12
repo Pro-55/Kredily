@@ -20,6 +20,10 @@
         <item name="boxStrokeErrorColor">@color/color_error</item>
         <item name="errorIconTint">@color/color_error</item>
         <item name="errorTextColor">@color/color_error</item>
+        <item name="boxCornerRadiusTopStart">@dimen/dimen_16dp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/dimen_16dp</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/dimen_16dp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/dimen_16dp</item>
     </style>
 
     <style name="EmailTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -34,4 +38,14 @@
         <item name="singleLine">true</item>
     </style>
 
+    <style name="RoundedBottomSheetDialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/RoundedBottomSheetModalStyle</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <style name="RoundedBottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_white_modal</item>
+    </style>
 </resources>
