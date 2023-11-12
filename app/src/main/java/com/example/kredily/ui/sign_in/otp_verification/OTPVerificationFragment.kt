@@ -89,7 +89,7 @@ class OTPVerificationFragment : BaseFragment() {
                 is Resource.Loading -> disableViews()
                 is Resource.Success -> {
                     findNavController().navigate(
-                        OTPVerificationFragmentDirections.navigateOTPVerificationToPasscode()
+                        OTPVerificationFragmentDirections.navigateOTPVerificationToSetPasscode()
                     )
                     enableViews()
                 }

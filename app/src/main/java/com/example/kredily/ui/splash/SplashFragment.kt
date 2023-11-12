@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.kredily.R
 import com.example.kredily.databinding.FragmentSplashBinding
 import com.example.kredily.framework.BaseFragment
+import com.example.kredily.model.LoginStatus
 import com.example.kredily.model.Resource
 import com.example.kredily.util.extensions.updateSystemUIColor
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,10 +50,10 @@ class SplashFragment : BaseFragment() {
             when (resource) {
                 is Resource.Loading -> Unit
                 is Resource.Success -> {
-                    val action = if (resource.data!!) {
-                        SplashFragmentDirections.navigateSplashToHome()
-                    } else {
-                        SplashFragmentDirections.navigateSplashToLogin()
+                    val action = when (resource.data!!) {
+                        LoginStatus.LOGIN_PENDING -> SplashFragmentDirections.navigateSplashToLogin()
+                        LoginStatus.PASSCODE_PENDING -> SplashFragmentDirections.navigateSplashToSetPasscode()
+                        LoginStatus.LOGGED_IN -> SplashFragmentDirections.navigateSplashToHome()
                     }
                     findNavController().navigate(action)
                 }

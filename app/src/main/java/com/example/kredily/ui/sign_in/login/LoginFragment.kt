@@ -66,7 +66,7 @@ class LoginFragment : BaseFragment() {
                 is Resource.Loading -> disableViews()
                 is Resource.Success -> {
                     enableViews()
-                    findNavController().navigate(LoginFragmentDirections.navigateLoginToPasscode())
+                    findNavController().navigate(LoginFragmentDirections.navigateLoginToSetPasscode())
                 }
                 is Resource.Error -> enableViews()
             }

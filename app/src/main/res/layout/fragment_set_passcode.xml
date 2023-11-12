@@ -3,18 +3,126 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_background">
+        android:background="@color/colorAccent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Set Passcode Fragment" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/img_icon"
+            android:layout_width="@dimen/dimen_288dp"
+            android:layout_height="@dimen/dimen_51dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="@dimen/dimen_16dp"
+            android:layout_marginTop="@dimen/dimen_82dp"
+            android:src="@drawable/ic_kredily" />
+
+        <LinearLayout
+            android:id="@+id/layout_parent_passcode_fields"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_64dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_white_modal"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_32dp">
+
+            <TextView
+                android:id="@+id/txt_get_started"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_get_started"
+                android:textColor="@color/color_primary_text"
+                android:textSize="@dimen/dimen_20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_create_passcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:maxLines="2"
+                android:text="@string/label_create_passcode"
+                android:textColor="@color/color_secondary_text"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_enter_passcode"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_enter_passcode"
+                    style="@style/PasswordTextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:hint="@string/hint_enter_passcode"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="6" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_confirm_passcode"
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                app:endIconMode="password_toggle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_confirm_passcode"
+                    style="@style/PasswordTextInputStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:hint="@string/hint_confirm_passcode"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberPassword"
+                    android:maxLength="6" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/txt_confirm_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_32dp"
+                android:maxLines="2"
+                android:text="@string/label_confirm_location"
+                android:textColor="@color/color_secondary_text"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <TextView
+                android:id="@+id/txt_office_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:background="@drawable/bg_border_frame"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dimen_16dp"
+                android:singleLine="true"
+                android:textColor="@color/color_primary_text"
+                android:textSize="@dimen/dimen_16sp"
+                app:drawableEndCompat="@drawable/ic_down"
+                app:drawableTint="@color/color_primary_text"
+                tools:text="4th Block, HSR Layout" />
+
+            <Button
+                android:id="@+id/btn_proceed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_32dp"
+                android:padding="@dimen/dimen_16dp"
+                android:text="@string/btn_proceed"
+                android:textColor="@color/color_button_text"
+                android:textSize="@dimen/dimen_16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/colorAccent"
+                app:cornerRadius="@dimen/dimen_16dp" />
+        </LinearLayout>
+    </LinearLayout>
 </layout>
