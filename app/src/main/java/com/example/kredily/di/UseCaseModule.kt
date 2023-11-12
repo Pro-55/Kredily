@@ -3,7 +3,9 @@ package com.example.kredily.di
 import com.example.kredily.data.repository.contract.KredilyRepository
 import com.example.kredily.data.use_case.CanLoginWithOTPUseCase
 import com.example.kredily.data.use_case.GetLoginStatusUseCase
+import com.example.kredily.data.use_case.GetOfficeLocationsUseCase
 import com.example.kredily.data.use_case.LoginUseCase
+import com.example.kredily.data.use_case.SetPasscodeUseCase
 import com.example.kredily.data.use_case.VerifyOTPUseCase
 import dagger.Module
 import dagger.Provides
@@ -38,5 +40,17 @@ object UseCaseModule {
     fun provideVerifyOTPUseCase(
         repository: KredilyRepository
     ): VerifyOTPUseCase = VerifyOTPUseCase(repository)
+
+    @ViewModelScoped
+    @Provides
+    fun provideGetOfficeLocationsUseCase(
+        repository: KredilyRepository
+    ): GetOfficeLocationsUseCase = GetOfficeLocationsUseCase(repository)
+
+    @ViewModelScoped
+    @Provides
+    fun provideSetPasscodeUseCase(
+        repository: KredilyRepository
+    ): SetPasscodeUseCase = SetPasscodeUseCase(repository)
 
 }

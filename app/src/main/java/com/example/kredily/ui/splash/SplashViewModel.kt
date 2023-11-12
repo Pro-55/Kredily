@@ -6,6 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.kredily.data.use_case.GetLoginStatusUseCase
+import com.example.kredily.model.LoginStatus
 import com.example.kredily.model.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -20,8 +21,8 @@ class SplashViewModel @Inject constructor(
 
     // Global
     private val TAG = SplashViewModel::class.java.simpleName
-    private val _loginStatus = MutableLiveData<Resource<Boolean>>()
-    val loginStatus: LiveData<Resource<Boolean>> = _loginStatus
+    private val _loginStatus = MutableLiveData<Resource<LoginStatus>>()
+    val loginStatus: LiveData<Resource<LoginStatus>> = _loginStatus
 
     fun getLoginStatus() {
         getLoginStatusUseCase()
