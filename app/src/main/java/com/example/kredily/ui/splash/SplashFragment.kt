@@ -6,12 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.example.kredily.R
 import com.example.kredily.databinding.FragmentSplashBinding
 import com.example.kredily.framework.BaseFragment
 import com.example.kredily.model.LoginStatus
 import com.example.kredily.model.Resource
+import com.example.kredily.util.extensions.showShortSnackBar
 import com.example.kredily.util.extensions.updateSystemUIColor
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,14 +58,29 @@ class SplashFragment : BaseFragment() {
             when (resource) {
                 is Resource.Loading -> Unit
                 is Resource.Success -> {
-                    val action = when (resource.data!!) {
-                        LoginStatus.LOGIN_PENDING -> SplashFragmentDirections.navigateSplashToLogin()
-                        LoginStatus.PASSCODE_PENDING -> SplashFragmentDirections.navigateSplashToSetPasscode()
-                        LoginStatus.LOGGED_IN -> SplashFragmentDirections.navigateSplashToHome()
+                    val action: NavDirections
+                    val extras: FragmentNavigator.Extras
+                    when (resource.data!!) {
+                        LoginStatus.LOGIN_PENDING -> {
+                            action = SplashFragmentDirections.navigateSplashToLogin()
+                            extras = FragmentNavigatorExtras(
+                                binding.imgIcon to binding.imgIcon.transitionName
+                            )
+                        }
+                        LoginStatus.PASSCODE_PENDING -> {
+                            action = SplashFragmentDirections.navigateSplashToSetPasscode()
+                            extras = FragmentNavigatorExtras(
+                                binding.imgIcon to binding.imgIcon.transitionName
+                            )
+                        }
+                        LoginStatus.LOGGED_IN -> {
+                            action = SplashFragmentDirections.navigateSplashToHome()
+                            extras = FragmentNavigatorExtras()
+                        }
                     }
-                    findNavController().navigate(action)
+                    findNavController().navigate(action, extras)
                 }
-                is Resource.Error -> Unit
+                is Resource.Error -> showShortSnackBar(resource.msg)
             }
         }
     }

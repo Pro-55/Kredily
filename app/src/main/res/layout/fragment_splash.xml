@@ -8,10 +8,12 @@
         android:background="@color/colorAccent">
 
         <ImageView
+            android:id="@+id/img_icon"
             android:layout_width="@dimen/dimen_288dp"
             android:layout_height="@dimen/dimen_51dp"
             android:scaleType="centerInside"
             android:src="@drawable/ic_kredily"
+            android:transitionName="@string/shared_img_logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

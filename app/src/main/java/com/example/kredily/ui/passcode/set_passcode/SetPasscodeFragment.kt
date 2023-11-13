@@ -1,17 +1,26 @@
 package com.example.kredily.ui.passcode.set_passcode
 
 import android.os.Bundle
+import android.transition.ChangeBounds
+import android.transition.ChangeTransform
+import android.transition.TransitionSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator
 import androidx.navigation.fragment.findNavController
 import com.example.kredily.R
 import com.example.kredily.databinding.FragmentSetPasscodeBinding
 import com.example.kredily.framework.BaseFragment
 import com.example.kredily.model.Resource
+import com.example.kredily.util.Constants
+import com.example.kredily.util.extensions.goneWithSlide
+import com.example.kredily.util.extensions.shortAnimTime
+import com.example.kredily.util.extensions.showShortSnackBar
 import com.example.kredily.util.extensions.updateSystemUIColor
+import com.example.kredily.util.extensions.visibleWithSlide
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,6 +32,15 @@ class SetPasscodeFragment : BaseFragment() {
     private val viewModel by viewModels<SetPasscodeViewModel>()
     private val officeLocations = mutableListOf<String>()
     private var selectedLocation: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = TransitionSet().apply {
+            addTransition(ChangeTransform())
+            addTransition(ChangeBounds())
+            interpolator = FastOutLinearInInterpolator()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +62,13 @@ class SetPasscodeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.root.postDelayed({
+            binding.layoutParentPasscodeFields.apply {
+                val parent = this.parent as ViewGroup
+                visibleWithSlide(parent = parent)
+            }
+        }, resources.shortAnimTime)
 
         setListeners()
 
@@ -72,12 +97,19 @@ class SetPasscodeFragment : BaseFragment() {
             when (resource) {
                 is Resource.Loading -> disableViews()
                 is Resource.Success -> {
+                    enableViews()
                     officeLocations.clear()
                     officeLocations.addAll(resource.data!!)
+                    if (officeLocations.isEmpty()) {
+                        showShortSnackBar(Constants.REQUEST_FAILED_MESSAGE)
+                        return@observe
+                    }
                     updateSelectedLocation(officeLocations[0])
-                    enableViews()
                 }
-                is Resource.Error -> enableViews()
+                is Resource.Error -> {
+                    enableViews()
+                    showShortSnackBar(resource.msg)
+                }
             }
         }
 
@@ -85,15 +117,28 @@ class SetPasscodeFragment : BaseFragment() {
             when (resource) {
                 is Resource.Loading -> disableViews()
                 is Resource.Success -> {
-                    enableViews()
-                    findNavController().navigate(SetPasscodeFragmentDirections.navigateSetPasscodeToHome())
+                    binding.layoutParentPasscodeFields.apply {
+                        val parent = this.parent as ViewGroup
+                        goneWithSlide(parent = parent)
+                        postDelayed({
+                            enableViews()
+                            findNavController().navigate(SetPasscodeFragmentDirections.navigateSetPasscodeToHome())
+                        }, resources.shortAnimTime)
+                    }
                 }
-                is Resource.Error -> enableViews()
+                is Resource.Error -> {
+                    enableViews()
+                    showShortSnackBar(resource.msg)
+                }
             }
         }
     }
 
     private fun showOfficeLocationsSheet() {
+        if (officeLocations.isEmpty()) {
+            showShortSnackBar(resources.getString(R.string.error_invalid_data))
+            return
+        }
         OfficeLocationsSheetFragment.showDialog(
             officeLocations = officeLocations,
             selectedLocation = selectedLocation,

@@ -16,6 +16,7 @@ import com.example.kredily.framework.BaseFragment
 import com.example.kredily.model.Resource
 import com.example.kredily.util.extensions.maskEmail
 import com.example.kredily.util.extensions.maskPhone
+import com.example.kredily.util.extensions.showShortSnackBar
 import com.example.kredily.util.extensions.updateSystemUIColor
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -96,6 +97,7 @@ class OTPVerificationFragment : BaseFragment() {
                 is Resource.Error -> {
                     enableViews()
                     updateOTPViewBorderColor(R.color.color_error)
+                    showShortSnackBar(resource.msg)
                 }
             }
         }

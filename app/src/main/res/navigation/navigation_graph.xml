@@ -12,16 +12,20 @@
         <action
             android:id="@+id/navigateSplashToLogin"
             app:destination="@id/loginFragment"
+            app:exitAnim="@anim/fade_out"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/navigateSplashToSetPasscode"
             app:destination="@id/setPasscodeFragment"
+            app:exitAnim="@anim/fade_out"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/navigateSplashToHome"
             app:destination="@id/homeFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -37,7 +41,11 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/navigateLoginToOTPVerification"
-            app:destination="@id/otpVerificationFragment" />
+            app:destination="@id/otpVerificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -55,6 +63,8 @@
         <action
             android:id="@+id/navigateOTPVerificationToSetPasscode"
             app:destination="@id/setPasscodeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -66,6 +76,8 @@
         <action
             android:id="@+id/navigateSetPasscodeToHome"
             app:destination="@id/homeFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
             app:popUpTo="@id/setPasscodeFragment"
             app:popUpToInclusive="true" />
     </fragment>
