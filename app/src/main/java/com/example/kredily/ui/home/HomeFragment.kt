@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.kredily.R
 import com.example.kredily.databinding.FragmentHomeBinding
 import com.example.kredily.framework.BaseFragment
@@ -125,7 +126,11 @@ class HomeFragment : BaseFragment() {
     private fun setListeners() {
         binding.editSearchEmployee.setTextChangedListener(watcher)
 
-        binding.imgBtnSettings.setOnClickListener { showShortSnackBar(resources.getString(R.string.msg_coming_soon)) }
+        binding.imgBtnSettings.setOnClickListener {
+            findNavController().navigate(
+                HomeFragmentDirections.navigateHomeToSettings()
+            )
+        }
 
         binding.mtbToggleGroup.setOnButtonCheckedListener { _, checkedId, isChecked ->
             if (!isChecked) return@setOnButtonCheckedListener
