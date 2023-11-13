@@ -1,18 +1,25 @@
 package com.example.kredily.ui.sign_in.login
 
 import android.os.Bundle
+import android.transition.ChangeBounds
+import android.transition.ChangeTransform
+import android.transition.TransitionSet
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.interpolator.view.animation.FastOutLinearInInterpolator
 import androidx.navigation.fragment.findNavController
 import com.example.kredily.R
 import com.example.kredily.databinding.FragmentLoginBinding
 import com.example.kredily.framework.BaseFragment
 import com.example.kredily.model.Resource
+import com.example.kredily.util.extensions.goneWithSlide
+import com.example.kredily.util.extensions.shortAnimTime
 import com.example.kredily.util.extensions.updateSystemUIColor
+import com.example.kredily.util.extensions.visibleWithSlide
 import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,6 +30,15 @@ class LoginFragment : BaseFragment() {
     private val TAG = LoginFragment::class.java.simpleName
     private lateinit var binding: FragmentLoginBinding
     private val viewModel by viewModels<LoginViewModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = TransitionSet().apply {
+            addTransition(ChangeTransform())
+            addTransition(ChangeBounds())
+            interpolator = FastOutLinearInInterpolator()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +60,13 @@ class LoginFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.root.postDelayed({
+            binding.layoutParentLoginFields.apply {
+                val parent = this.parent as ViewGroup
+                visibleWithSlide(parent = parent)
+            }
+        }, resources.shortAnimTime)
 
         setListeners()
 
@@ -69,8 +92,14 @@ class LoginFragment : BaseFragment() {
             when (resource) {
                 is Resource.Loading -> disableViews()
                 is Resource.Success -> {
-                    enableViews()
-                    findNavController().navigate(LoginFragmentDirections.navigateLoginToSetPasscode())
+                    binding.layoutParentLoginFields.apply {
+                        val parent = this.parent as ViewGroup
+                        goneWithSlide(parent = parent)
+                        postDelayed({
+                            enableViews()
+                            findNavController().navigate(LoginFragmentDirections.navigateLoginToSetPasscode())
+                        }, resources.shortAnimTime)
+                    }
                 }
                 is Resource.Error -> enableViews()
             }
