@@ -38,4 +38,6 @@ interface KredilyRepository {
     ): Flow<Resource<HomeScreenState>>
 
     fun clearAllEmployeeFilters(state: HomeScreenState?): Flow<Resource<HomeScreenState>>
+
+    fun logOut(): Flow<Resource<Boolean>>
 }

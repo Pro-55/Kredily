@@ -407,4 +407,16 @@ class KredilyRepositoryImpl(
             }
         } else filteredByLocation
     }
+
+    override fun logOut(): Flow<Resource<Boolean>> = resourceFlow {
+
+        db.employeeDao
+            .deleteAll()
+
+        sp.edit()
+            .clear()
+            .apply()
+
+        emit(Resource.Success(data = true))
+    }
 }

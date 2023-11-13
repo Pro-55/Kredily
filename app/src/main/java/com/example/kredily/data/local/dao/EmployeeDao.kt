@@ -15,4 +15,6 @@ interface EmployeeDao {
     @Query("SELECT * FROM employee_table")
     suspend fun getAll(): List<EntityEmployee>
 
+    @Query("DELETE FROM employee_table")
+    fun deleteAll()
 }
