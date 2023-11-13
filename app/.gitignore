@@ -1,4 +1,5 @@
 /build
 /gradle.properties
+/schemas
 /debug
 /release

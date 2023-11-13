@@ -1,5 +1,6 @@
 package com.example.kredily.util.extensions
 
+import android.transition.Fade
 import android.transition.Slide
 import android.transition.TransitionManager
 import android.view.Gravity
@@ -58,5 +59,32 @@ fun View.invisibleWithSlide(
 ) {
     val slideTransition = Slide(slideEdge).setDuration(duration).addTarget(this)
     TransitionManager.beginDelayedTransition(parent, slideTransition)
+    invisible()
+}
+
+fun View.visibleWithFade(
+    parent: ViewGroup,
+    duration: Long = 300
+) {
+    val fadeTransition = Fade().setDuration(duration).addTarget(this)
+    TransitionManager.beginDelayedTransition(parent, fadeTransition)
+    visible()
+}
+
+fun View.goneWithFade(
+    parent: ViewGroup,
+    duration: Long = 300
+) {
+    val fadeTransition = Fade().setDuration(duration).addTarget(this)
+    TransitionManager.beginDelayedTransition(parent, fadeTransition)
+    gone()
+}
+
+fun View.invisibleWithFade(
+    parent: ViewGroup,
+    duration: Long = 300
+) {
+    val fadeTransition = Fade().setDuration(duration).addTarget(this)
+    TransitionManager.beginDelayedTransition(parent, fadeTransition)
     invisible()
 }
