@@ -28,7 +28,11 @@ class HomeFragment : BaseFragment() {
             isAppearanceLightStatusBars = true,
             isAppearanceLightNavigationBars = true
         )
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_home,
+            container, false
+        )
         return binding.root
     }
 }
