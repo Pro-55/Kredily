@@ -2,6 +2,7 @@ package com.example.kredily.di
 
 import android.content.SharedPreferences
 import android.content.res.AssetManager
+import com.example.kredily.data.local.AppDatabase
 import com.example.kredily.data.repository.contract.KredilyRepository
 import com.example.kredily.data.repository.impl.KredilyRepositoryImpl
 import com.google.gson.Gson
@@ -20,7 +21,8 @@ object RepositoryModule {
     fun provideKredilyRepository(
         sp: SharedPreferences,
         am: AssetManager,
-        gson: Gson
-    ): KredilyRepository = KredilyRepositoryImpl(sp, am, gson)
+        gson: Gson,
+        db: AppDatabase
+    ): KredilyRepository = KredilyRepositoryImpl(sp, am, gson, db)
 
 }
