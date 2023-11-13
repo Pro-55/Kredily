@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/layout_parent_filter_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_4dp"
+        android:background="@drawable/bg_border_frame"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/dimen_16dp"
+        android:paddingVertical="@dimen/dimen_8dp">
+
+        <TextView
+            android:id="@+id/txt_filter_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_4dp"
+            android:singleLine="true"
+            android:textSize="@dimen/dimen_14sp"
+            android:textStyle="bold"
+            tools:text="Department"
+            tools:textColor="@color/color_secondary_text" />
+
+        <ImageView
+            android:id="@+id/img_drop_down"
+            android:layout_width="@dimen/dimen_24dp"
+            android:layout_height="@dimen/dimen_24dp"
+            android:layout_marginStart="@dimen/dimen_4dp"
+            android:src="@drawable/ic_drop_down"
+            tools:tint="@color/color_secondary_text" />
+    </LinearLayout>
+</layout>
