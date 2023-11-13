@@ -18,6 +18,7 @@ import com.example.kredily.framework.BaseFragment
 import com.example.kredily.model.Resource
 import com.example.kredily.util.extensions.goneWithSlide
 import com.example.kredily.util.extensions.shortAnimTime
+import com.example.kredily.util.extensions.showShortSnackBar
 import com.example.kredily.util.extensions.updateSystemUIColor
 import com.example.kredily.util.extensions.visibleWithSlide
 import com.google.android.material.textfield.TextInputLayout
@@ -101,7 +102,10 @@ class LoginFragment : BaseFragment() {
                         }, resources.shortAnimTime)
                     }
                 }
-                is Resource.Error -> enableViews()
+                is Resource.Error -> {
+                    enableViews()
+                    showShortSnackBar(resource.msg)
+                }
             }
         }
 
@@ -120,6 +124,7 @@ class LoginFragment : BaseFragment() {
                 is Resource.Error -> {
                     viewModel.resetCanLoginWithOTPResponse()
                     enableViews()
+                    showShortSnackBar(resource.msg)
                 }
             }
         }

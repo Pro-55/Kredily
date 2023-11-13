@@ -20,6 +20,7 @@
 
     <string name="error_invalid_email">Invalid email…</string>
     <string name="error_invalid_password">Invalid password…</string>
+    <string name="error_invalid_data">Invalid data…</string>
 
     <string name="shared_img_logo">shared_img_logo</string>
 </resources>

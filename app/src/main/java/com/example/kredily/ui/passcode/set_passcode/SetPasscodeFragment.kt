@@ -15,8 +15,10 @@ import com.example.kredily.R
 import com.example.kredily.databinding.FragmentSetPasscodeBinding
 import com.example.kredily.framework.BaseFragment
 import com.example.kredily.model.Resource
+import com.example.kredily.util.Constants
 import com.example.kredily.util.extensions.goneWithSlide
 import com.example.kredily.util.extensions.shortAnimTime
+import com.example.kredily.util.extensions.showShortSnackBar
 import com.example.kredily.util.extensions.updateSystemUIColor
 import com.example.kredily.util.extensions.visibleWithSlide
 import dagger.hilt.android.AndroidEntryPoint
@@ -95,12 +97,19 @@ class SetPasscodeFragment : BaseFragment() {
             when (resource) {
                 is Resource.Loading -> disableViews()
                 is Resource.Success -> {
+                    enableViews()
                     officeLocations.clear()
                     officeLocations.addAll(resource.data!!)
+                    if (officeLocations.isEmpty()) {
+                        showShortSnackBar(Constants.REQUEST_FAILED_MESSAGE)
+                        return@observe
+                    }
                     updateSelectedLocation(officeLocations[0])
-                    enableViews()
                 }
-                is Resource.Error -> enableViews()
+                is Resource.Error -> {
+                    enableViews()
+                    showShortSnackBar(resource.msg)
+                }
             }
         }
 
@@ -117,12 +126,19 @@ class SetPasscodeFragment : BaseFragment() {
                         }, resources.shortAnimTime)
                     }
                 }
-                is Resource.Error -> enableViews()
+                is Resource.Error -> {
+                    enableViews()
+                    showShortSnackBar(resource.msg)
+                }
             }
         }
     }
 
     private fun showOfficeLocationsSheet() {
+        if (officeLocations.isEmpty()) {
+            showShortSnackBar(resources.getString(R.string.error_invalid_data))
+            return
+        }
         OfficeLocationsSheetFragment.showDialog(
             officeLocations = officeLocations,
             selectedLocation = selectedLocation,

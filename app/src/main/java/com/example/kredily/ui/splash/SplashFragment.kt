@@ -15,6 +15,7 @@ import com.example.kredily.databinding.FragmentSplashBinding
 import com.example.kredily.framework.BaseFragment
 import com.example.kredily.model.LoginStatus
 import com.example.kredily.model.Resource
+import com.example.kredily.util.extensions.showShortSnackBar
 import com.example.kredily.util.extensions.updateSystemUIColor
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -79,7 +80,7 @@ class SplashFragment : BaseFragment() {
                     }
                     findNavController().navigate(action, extras)
                 }
-                is Resource.Error -> Unit
+                is Resource.Error -> showShortSnackBar(resource.msg)
             }
         }
     }
