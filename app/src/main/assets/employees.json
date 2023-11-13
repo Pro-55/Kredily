@@ -1,0 +1,65 @@
+[
+  {
+    "id": "AMG05",
+    "firstName": "Juan",
+    "lastName": "Fangio",
+    "profileUrl": "",
+    "location": "Electronic City",
+    "department": "Design",
+    "isConfigured": false
+  },
+  {
+    "id": "AMG06",
+    "firstName": "Stirling",
+    "lastName": "Moss",
+    "profileUrl": "",
+    "location": "Electronic City",
+    "department": "Design",
+    "isConfigured": false
+  },
+  {
+    "id": "AMG07",
+    "firstName": "Michael",
+    "lastName": "Schumacher",
+    "profileUrl": "",
+    "location": "2nd Block, Koramangala",
+    "department": "Product",
+    "isConfigured": true
+  },
+  {
+    "id": "AMG08",
+    "firstName": "Nico",
+    "lastName": "Rosberg",
+    "profileUrl": "",
+    "location": "2nd Block, Koramangala",
+    "department": "Product",
+    "isConfigured": false
+  },
+  {
+    "id": "AMG44",
+    "firstName": "Lewis",
+    "lastName": "Hamilton",
+    "profileUrl": "",
+    "location": "4th Block, HSR Layout",
+    "department": "Engineering",
+    "isConfigured": true
+  },
+  {
+    "id": "AMG63",
+    "firstName": "George",
+    "lastName": "Russell",
+    "profileUrl": "",
+    "location": "4th Block, HSR Layout",
+    "department": "QA",
+    "isConfigured": false
+  },
+  {
+    "id": "AMG77",
+    "firstName": "Valtteri",
+    "lastName": "Bottas",
+    "profileUrl": "",
+    "location": "4th Block, HSR Layout",
+    "department": "Engineering",
+    "isConfigured": true
+  }
+]

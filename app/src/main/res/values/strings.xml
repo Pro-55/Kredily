@@ -8,19 +8,28 @@
     <string name="label_get_started">Get Started</string>
     <string name="label_create_passcode">Create a passcode to manage employee data</string>
     <string name="label_confirm_location">Confirm your office location</string>
+    <string name="label_total">Total(%d)</string>
+    <string name="label_unconfigured">Unconfigured(%d)</string>
 
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_enter_passcode">Enter Passcode</string>
     <string name="hint_confirm_passcode">Confirm Passcode</string>
+    <string name="hint_search_employee">Search Employee</string>
 
     <string name="btn_log_in">Log In</string>
     <string name="btn_log_in_with_otp">Log In With OTP</string>
     <string name="btn_proceed">Proceed</string>
+    <string name="btn_clear_all">Clear All</string>
+    <string name="btn_update">Update</string>
+    <string name="btn_configure">Configure</string>
 
     <string name="error_invalid_email">Invalid email…</string>
     <string name="error_invalid_password">Invalid password…</string>
     <string name="error_invalid_data">Invalid data…</string>
+    <string name="error_something_went_wrong">Something went wrong</string>
+
+    <string name="msg_coming_soon">Coming soon…</string>
 
     <string name="shared_img_logo">shared_img_logo</string>
 </resources>

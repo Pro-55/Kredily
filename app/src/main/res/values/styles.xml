@@ -48,4 +48,17 @@
     <style name="RoundedBottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/bg_white_modal</item>
     </style>
+
+    <style name="SegmentButtonStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/dimen_14sp</item>
+        <item name="android:padding">@dimen/dimen_8dp</item>
+        <item name="android:textColor">@drawable/color_segment_button_text</item>
+        <item name="strokeColor">@drawable/color_segment_button_text</item>
+    </style>
+
+    <style name="SquareFAB" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/dimen_16dp</item>
+    </style>
 </resources>
