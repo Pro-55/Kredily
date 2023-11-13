@@ -34,8 +34,11 @@ class SetPasscodeFragment : BaseFragment() {
             isAppearanceLightStatusBars = false,
             isAppearanceLightNavigationBars = true
         )
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_set_passcode, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_set_passcode,
+            container, false
+        )
         return binding.root
     }
 

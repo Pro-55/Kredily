@@ -23,8 +23,7 @@ class OfficeLocationsAdapter(
         DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             R.layout.layout_office_locations_adapter_item,
-            parent,
-            false
+            parent, false
         )
     )
 
@@ -37,7 +36,9 @@ class OfficeLocationsAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(officeLocation: String) = with(binding) {
             txtOfficeLocation.text = officeLocation
+
             radioOfficeLocation.isChecked = officeLocation == selectedLocation
+
             root.setOnClickListener { listener.onLocationSelected(officeLocation) }
         }
     }

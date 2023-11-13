@@ -33,7 +33,11 @@ class SplashFragment : BaseFragment() {
             isAppearanceLightStatusBars = false,
             isAppearanceLightNavigationBars = false
         )
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_splash, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_splash,
+            container, false
+        )
         return binding.root
     }
 
