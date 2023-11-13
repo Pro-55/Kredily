@@ -9,6 +9,7 @@ import com.example.kredily.data.use_case.GetEmployeesUseCase
 import com.example.kredily.data.use_case.GetHomeScreenStateUseCase
 import com.example.kredily.data.use_case.GetLoginStatusUseCase
 import com.example.kredily.data.use_case.GetOfficeLocationsUseCase
+import com.example.kredily.data.use_case.LogOutUseCase
 import com.example.kredily.data.use_case.LoginUseCase
 import com.example.kredily.data.use_case.RemoveEmployeeFilterUseCase
 import com.example.kredily.data.use_case.SearchEmployeeUseCase
@@ -101,4 +102,10 @@ object UseCaseModule {
     fun provideClearAllEmployeeFiltersUseCase(
         repository: KredilyRepository
     ): ClearAllEmployeeFiltersUseCase = ClearAllEmployeeFiltersUseCase(repository)
+
+    @ViewModelScoped
+    @Provides
+    fun provideLogOutUseCase(
+        repository: KredilyRepository
+    ): LogOutUseCase = LogOutUseCase(repository)
 }

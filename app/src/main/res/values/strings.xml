@@ -28,6 +28,7 @@
     <string name="btn_clear_all">Clear All</string>
     <string name="btn_update">Update</string>
     <string name="btn_configure">Configure</string>
+    <string name="btn_log_out">Log Out</string>
 
     <string name="error_invalid_email">Invalid email…</string>
     <string name="error_invalid_password">Invalid password…</string>
